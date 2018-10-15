@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 
-router.use('/students', require('./students'));
-router.use('/campuses', require('./campuses'));
+router.use('/vets', require('./vets'));
+router.use('/pets', require('./pets'));
 
 
 router.use(function (req, res) {

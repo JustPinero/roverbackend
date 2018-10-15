@@ -1,28 +1,28 @@
 const express = require('express');
 const router = express.Router();
-const Students = require('../../db/models/students');
-const Campuses = require('../../db/models/campuses');
+const Pets = require('../../db/models/pets');
+const Vets = require('../../db/models/vets');
 const Bluebird = require('bluebird');
 
 router.get('/', function (req, res, next) {
-  console.log('Campuses being found');
-  Campuses.findAll()
-  .then(campuses => {console.log(campuses);
-    return res.json(campuses);})
+  console.log('Pets being found');
+  Pets.findAll()
+  .then(pets => {console.log(pets);
+    return res.json(pets);})
   .catch(next);
 });
 
 router.get("/:id", function(req, res, next){
-  Campuses.findOne({
+  Pets.findOne({
     where:{
       id: req.params.id
     }
   })
-  .then(function(campusById){
-    if(!campusById){
+  .then(function(petById){
+    if(!petById){
       res.sendStatus(404);
     }else{
-    res.json(campusById);
+    res.json(petById);
     }
   })
   .catch(next);
@@ -30,8 +30,8 @@ router.get("/:id", function(req, res, next){
 
 router.post("/", (req, res, next)=>{
   if(req.body){
-    Campuses.create(req.body)
-    .then(campus=> res.status(201).json(campus))
+    Pets.create(req.body)
+    .then(pet=> res.status(201).json(pet))
     .catch(next);
   } else{
     res.sendStatus(500);
@@ -39,29 +39,29 @@ router.post("/", (req, res, next)=>{
 });
 
 router.put("/:id", (req, res, next)=>{
-  Campuses.findOne({
+  Pets.findOne({
     where:{
       id: req.params.id
     }
   })
-  .then(function(unupdatedCampus){
-    if(unupdatedCampus){
-    return unupdatedCampus.update(req.body);
+  .then(function(unupdatedPet){
+    if(unupdatedPet){
+    return unupdatedPet.update(req.body);
     }
   })
-  .then(campus=> res.status(201).json(campus))
+  .then(pet=> res.status(201).json(pet))
   .catch(next);
 });
 
 router.delete("/:id", (req, res)=>{
-  Campuses.destroy({
+  Pets.destroy({
     where:{
       id: req.params.id
     }
   })
   .then(()=>{
     res.send({
-      message: "Campus removed"
+      message: "Pet removed"
     });
   })
   .catch((err)=>{

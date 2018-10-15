@@ -1,26 +1,26 @@
 const express = require('express');
 const router = express.Router();
-const Students = require('../../db/models/students');
-const Campuses = require('../../db/models/campuses');
+const Pets = require('../../db/models/pets');
+const Vets = require('../../db/models/vets');
 const Bluebird = require('bluebird');
 
 router.get('/', function (req, res, next) {
-  Students.findAll()
-  .then(students => res.json(students))
+  Vets.findAll()
+  .then(vets => res.json(vets))
   .catch(next);
 });
 
 router.get("/:id", function(req, res, next){
-  Students.findOne({
+  Vets.findOne({
     where:{
       id: req.params.id
     }
   })
-  .then(function(studentsById){
-    if(!studentsById){
+  .then(function(vetsById){
+    if(!vetsById){
       res.sendStatus(404);
     }else{
-    res.json(studentsById);
+    res.json(vetsById);
     }
   })
   .catch(next);
@@ -28,8 +28,8 @@ router.get("/:id", function(req, res, next){
 
 router.post("/", (req, res, next)=>{
   if(req.body){
-    Students.create(req.body)
-    .then(student=> res.status(201).json(student))
+    Vets.create(req.body)
+    .then(vets=> res.status(201).json(vet))
     .catch(next);
   } else{
     res.sendStatus(500);
@@ -37,29 +37,29 @@ router.post("/", (req, res, next)=>{
 });
 
 router.put("/:id", (req, res, next)=>{
-  Students.findOne({
+  Vets.findOne({
     where:{
       id: req.params.id
     }
   })
-  .then(function(unupdatedStudent){
-    if(unupdatedStudent){
+  .then(function(unupdatedVet){
+    if(unupdatedVet){
     return unupdatedStudent.update(req.body);
     }
   })
-  .then(updatedStudent => res.status(201).json(updatedStudent))
+  .then(updatedStudent => res.status(201).json(updatedVet))
   .catch(next);
 });
 
 router.delete("/:id", (req, res)=>{
-  Students.destroy({
+  Vets.destroy({
     where:{
       id: req.params.id
     }
   })
   .then(()=>{
     res.send({
-      message: "Student deleted"
+      message: "Vet deleted"
     });
   })
   .catch((err)=>{
