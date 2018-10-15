@@ -1,7 +1,7 @@
 {
-  "name": "MHIAJ",
+  "name": "Rover",
   "version": "0.0.1",
-  "description": "A review time project",
+  "description": "An app that connects pets and vets",
   "main": "index.js",
   "scripts": {
     "test": "mocha **/*.test.js *.test.js",
