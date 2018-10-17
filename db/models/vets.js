@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('../index');
 
-const vet= db.define('vet', {
+const Vet= db.define('vet', {
   firstName: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -33,4 +33,4 @@ const vet= db.define('vet', {
     }
 });
 
-module.exports = vet;
+module.exports = Vet;

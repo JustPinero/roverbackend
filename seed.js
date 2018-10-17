@@ -57,21 +57,27 @@ const vets = [
 ];
 
 const seed = () =>{
-  Bluebird.map(pets, pet =>
-    Pet.create(pet)
-  );
-
-  Bluebird.map(vets, vet =>
-    Vet.create(vet)
+  return Bluebird.all(
+    Bluebird.map(pets, pet => {
+        console.log("THE PET", pet)
+      return(
+        Pets.create(pet)
+      );
+    }),
+    Bluebird.map(vets, vet => {
+      console.log("THE VET", vet)
+      return(
+        Vets.create(vet)
+      );
+    })
   );
   
-  }
-
+};
 const main = () => {
   console.log("Syncing db...");
   db.sync({ force: true })
     .then(() => {
-      console.log("Seeding databse...");
+      console.log("Seeding database...");
       return seed();
     })
     .catch(err => {

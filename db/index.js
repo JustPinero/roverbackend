@@ -23,6 +23,7 @@ function sync(force=false, retries=0, maxRetries=5) {
   return db.sync({force})
   .then(ok => console.log(`Synced models to db ${connectionString}`))
   .catch(fail => {
+    console.log("DATA BASE IS FAILING TO SYNC")
     // Don't do this auto-create nonsense in prod, or
     // if we've retried too many times.
     if (process.env.NODE_ENV === 'production' || retries > maxRetries) {
