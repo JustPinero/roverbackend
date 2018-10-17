@@ -5,19 +5,19 @@ const Bluebird = require("bluebird");
 
 const pets = [{
   "name": "Pixel",
-  "photo": "https://vignette1.wikia.nocookie.net/en.futurama/images/2/24/MarsUniversity.png/revision/latest?cb=20071224022054",
+  "photo": "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/22184327/Siberian-Husky-on-White-12-800x600-1.jpg",
   "bio": "Pixel is a quarter werewolf."
 }, {
   "name": "Louie",
-  "photo": "https://theinfosphere.org/images/thumb/e/ef/Braino.png/175px-Braino.png",
-  "bio": "Louie has retractable eyes"
+  "photo": "https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjB-L6BvI7eAhXIT98KHfVnBj8QjRx6BAgBEAU&url=https%3A%2F%2Ftwitter.com%2Funidentifiedape&psig=AOvVaw375js7FzuoM2qMRft4VYlQ&ust=1539899799857640",
+  "bio": "Louie is King"
 }, {
   "name": "Lily",
-  "photo": "https://vignette3.wikia.nocookie.net/starwars/images/5/55/Temple_Interior.png/revision/latest?cb=20150803133149",
+  "photo": "https://images.mentalfloss.com/sites/default/files/styles/mf_image_16x9/public/487568273.jpg?itok=2Bdyj8fB&resize=1100x1100",
   "bio": "Lily currently works at the UN."
 }, {
   "name": "Betty",
-  "photo": "http://www.collegerag.net/wp-content/uploads/2014/05/21.jpg",
+  "photo": "https://orig00.deviantart.net/73d6/f/2017/364/7/a/giant_squid_by_rampartpress-dbyc9jy.jpg",
   "bio": "Betty is a Fullbright scholar."
 }];
 
@@ -26,7 +26,7 @@ const vets = [
     "firstName": "Arthur",
     "lastName": "MacNugget",
     "photo": "https://i.ytimg.com/vi/Nh-QOzHmr5s/hqdefault.jpg",
-    "email": "aMacnugs@earthlink.com"
+    "email": "aMacnugs@earthlink.com",
   }, {
     "firstName": "Gilly",
     "lastName": "Fishman",
@@ -41,7 +41,7 @@ const vets = [
   , {
     firstName: "Nathan",
     lastName: "Explosion",
-    "photo": "https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwiuteupzIzeAhVnc98KHQ1WD3UQjRx6BAgBEAU&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F809873945460690927%2F&psig=AOvVaw0p_1WByP5t76DOkj77HPgW&ust=1539835480193736",
+    "photo": "https://vignette.wikia.nocookie.net/metalocalypse/images/d/d2/Nathe.jpg/revision/latest?cb=20140128080840",
     email: "natex@dethklok.com",
   }, {
     "firstName": "Beatrix",
